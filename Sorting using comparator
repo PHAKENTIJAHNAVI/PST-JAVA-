@@ -1,0 +1,36 @@
+import java.util.*;
+
+class Student {
+    String name;
+    int marks;
+
+    Student(String name, int marks) {
+        this.name = name;
+        this.marks = marks;
+    }
+
+    public String toString() {
+        return name + " " + marks;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        ArrayList<Student> students = new ArrayList<>();
+
+        students.add(new Student("Arun", 85));
+        students.add(new Student("Bala", 70));
+        students.add(new Student("Charan", 95));
+        students.add(new Student("David", 60));
+
+        // Sorting using Comparator
+        Collections.sort(students, new Comparator<Student>() {
+            public int compare(Student s1, Student s2) {
+                return s1.marks - s2.marks;
+            }
+        });
+
+        System.out.println(students);
+    }
+}
